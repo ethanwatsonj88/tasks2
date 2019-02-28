@@ -1,0 +1,28 @@
+<h1>Show Task item</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @task_item.title %>
+  </li>
+
+  <li>
+    <strong>Desc:</strong>
+    <%= @task_item.desc %>
+  </li>
+
+  <li>
+    <strong>Time spent:</strong>
+    <%= @task_item.time_spent %>
+  </li>
+
+  <li>
+    <strong>Completed:</strong>
+    <%= @task_item.completed %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.task_item_path(@conn, :edit, @task_item) %></span>
+<span><%= link "Back", to: Routes.task_item_path(@conn, :index) %></span>

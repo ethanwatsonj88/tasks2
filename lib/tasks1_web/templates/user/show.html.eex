@@ -1,0 +1,48 @@
+<h1>Show User</h1>
+
+<ul>
+
+	<li>
+		<%= @user.id %>
+	</li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </li>
+
+</ul>
+
+<%= if @current_user do %>
+  <div>
+    <%= form_for @item_tset, Routes.task_item_path(@conn, :create),
+              [class: ""], fn f -> %>
+			<%= hidden_input f, :completed %>
+
+      <div class="form-group">
+				User id for task: <%= number_input f, :user_id, class: "form-control" %>
+				Title: <%= text_input f, :title, class: "form-control" %>
+				Description: <%= text_input f, :desc, class: "form-control" %>
+        Time Spent: <%= number_input f, :time_spent, class: "form-control" %>
+        <%= error_tag f, :user_id %>
+				<%= error_tag f, :title %>
+				<%= error_tag f, :desc %>
+				<%= error_tag f, :time_spent %>
+      </div>
+
+      <div>
+        <%= submit "Add to Tasks", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user),
+					class: "btn btn-default" %></span>
+<span><%= link "Back", to: Routes.user_path(@conn, :index),
+					class: "btn btn-default" %></span>
