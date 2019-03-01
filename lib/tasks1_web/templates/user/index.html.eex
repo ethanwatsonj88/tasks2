@@ -3,6 +3,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+			<th>User id</th>
       <th>Email</th>
       <th>Name</th>
 
@@ -12,6 +13,7 @@
   <tbody>
 <%= for user <- @users do %>
     <tr>
+			<td><%= user.id %></td>
       <td><%= user.email %></td>
       <td><%= user.name %></td>
 

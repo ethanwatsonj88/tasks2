@@ -20,7 +20,7 @@ defmodule Tasks1Web.Router do
     get "/", PageController, :index
 		resources "/users", UserController
 		resources "/task_items", TaskItemController
-    resources "/sessions", SessionController, only: [:delete, :create], singleton: true
+    resources "/sessions", SessionController, only: [:create, :delete], singleton: true
 
   end
 
