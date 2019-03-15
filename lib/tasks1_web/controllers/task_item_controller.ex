@@ -4,6 +4,8 @@ defmodule Tasks1Web.TaskItemController do
   alias Tasks1.Tasks
   alias Tasks1.Tasks.TaskItem
 
+	plug Tasks1Web.Plugs.RequireManager when action in [:new, :create, :delete]
+
   def index(conn, _params) do
     task_items = Tasks.list_task_items()
     render(conn, "index.html", task_items: task_items)

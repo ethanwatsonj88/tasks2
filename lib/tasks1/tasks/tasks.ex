@@ -35,7 +35,12 @@ defmodule Tasks1.Tasks do
       ** (Ecto.NoResultsError)
 
   """
-  def get_task_item!(id), do: Repo.get!(TaskItem, id)
+  def get_task_item!(id) do
+	#	Repo.one! from t in TaskItem,
+	#		preload: [:time_blocks]
+	#end
+	Repo.get!(TaskItem, id)	
+	end
 
   @doc """
   Creates a task_item.

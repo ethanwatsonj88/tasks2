@@ -1,9 +1,12 @@
 defmodule Tasks1Web.UserController do
   use Tasks1Web, :controller
+	import Plug.Conn
 
   alias Tasks1.Users
   alias Tasks1.Users.User
 	alias Tasks1.Tasks
+
+	#plug Tasks1Web.Plugs.AddShownUser when action in [:show]
 
   def index(conn, _params) do
     users = Users.list_users()
@@ -22,7 +25,6 @@ defmodule Tasks1Web.UserController do
         |> put_flash(:info, "User created successfully.")
 				|> put_session(:user_id, user.id)
         |> redirect(to: Routes.user_path(conn, :index))
-
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

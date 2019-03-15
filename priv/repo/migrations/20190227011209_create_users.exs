@@ -5,7 +5,8 @@ defmodule Tasks1.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :email, :string
       add :name, :string
-
+			add :is_manager, :boolean
+			add :manager_id, :integer
       timestamps()
     end
 

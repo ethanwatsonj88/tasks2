@@ -9,7 +9,7 @@ defmodule Tasks1.Tasks.TaskItem do
     field :time_spent, :integer
     field :title, :string
 		belongs_to :user, Tasks1.Users.User
-
+		has_many :time_blocks, Tasks1.TimeBlocks.TimeBlock
     timestamps()
   end
 

@@ -6,8 +6,10 @@ defmodule Tasks1.Users.User do
   schema "users" do
     field :email, :string
     field :name, :string
+		field :is_manager, :boolean
+		field :manager_id, :integer
 		has_many :task_items, Tasks1.Tasks.TaskItem		
-
+		has_many :time_blocks, Tasks1.TimeBlocks.TimeBlock
     timestamps()
   end
 
